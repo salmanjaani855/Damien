@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,400;0,500;0,600&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* ─── Page load ─── */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.page-enter {
+  animation: pageFadeIn 0.6s ease-out forwards;
+}
+
+/* ─── Hero load animations ─── */
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroScaleIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, calc(-50% - 12px)) scale(1.02); }
+}
+
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-load-1 {
+  opacity: 0;
+  animation: heroSlideUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+}
+
+.hero-load-2 {
+  opacity: 0;
+  animation: heroSlideUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+}
+
+.hero-load-3 {
+  opacity: 0;
+  animation: heroSlideRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+.hero-load-4 {
+  opacity: 0;
+  animation: heroSlideLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+}
+
+.hero-load-5 {
+  opacity: 0;
+  animation: heroSlideLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+}
+
+.hero-vector {
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation:
+    heroScaleIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards,
+    heroFloat 6s ease-in-out 1.2s infinite;
+}
+
+.nav-load {
+  opacity: 0;
+  animation: navDrop 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+}
+
+/* ─── Scroll reveal ─── */
+.scroll-reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-up {
+  transform: translateY(60px);
+}
+
+.scroll-reveal-down {
+  transform: translateY(-40px);
+}
+
+.scroll-reveal-left {
+  transform: translateX(-60px);
+}
+
+.scroll-reveal-right {
+  transform: translateX(60px);
+}
+
+.scroll-reveal-scale {
+  transform: scale(0.92);
+}
+
+.scroll-reveal-zoom {
+  transform: scale(0.85);
+}
+
+.scroll-reveal-fade {
+  transform: none;
+}
+
+.scroll-revealed {
+  opacity: 1 !important;
+  transform: translate(0) scale(1) !important;
+}
+
+.scroll-delay-1 { transition-delay: 0.1s; }
+.scroll-delay-2 { transition-delay: 0.2s; }
+.scroll-delay-3 { transition-delay: 0.3s; }
+.scroll-delay-4 { transition-delay: 0.4s; }
+.scroll-delay-5 { transition-delay: 0.5s; }
+.scroll-delay-6 { transition-delay: 0.6s; }
+
+/* ─── Infinite marquee bars ─── */
+@keyframes marqueeScrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marqueeScrollRight {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-left {
+  animation: marqueeScrollLeft 30s linear infinite;
+}
+
+.marquee-right {
+  animation: marqueeScrollRight 30s linear infinite;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+}
+
+/* ─── Button animations ─── */
+.btn-animate {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    filter 0.3s ease;
+}
+
+.btn-animate:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.btn-animate:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.1s;
+}
+
+.btn-primary-animate {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.3s ease;
+}
+
+.btn-primary-animate:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    4px 4px 17.4px rgba(255, 255, 255, 0.28) inset,
+    0 8px 30px rgba(74, 44, 237, 0.5);
+  filter: brightness(1.1);
+}
+
+.btn-primary-animate:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn-primary-animate img {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-primary-animate:hover img {
+  transform: translate(2px, -2px) rotate(-45deg);
+}
+
+.btn-icon-animate {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-icon-animate:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+}
+
+.btn-icon-animate:active {
+  transform: scale(0.95);
+}
+
+.btn-icon-animate:hover img {
+  transform: scale(1.1);
+}
+
+.btn-icon-animate img {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-link-animate {
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-link-animate::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-link-animate:hover {
+  transform: translateX(4px);
+}
+
+.btn-link-animate:hover::after {
+  width: 100%;
+}
+
+/* ─── Image hover ─── */
+.img-reveal-hover {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.img-reveal-hover:hover {
+  transform: scale(1.03);
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .hero-load-1, .hero-load-2, .hero-load-3, .hero-load-4, .hero-load-5,
+  .hero-vector,
+  .nav-load,
+  .scroll-reveal,
+  .marquee-left,
+  .marquee-right {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .btn-animate:hover,
+  .btn-primary-animate:hover,
+  .btn-icon-animate:hover,
+  .btn-link-animate:hover,
+  .img-reveal-hover:hover {
+    transform: none;
+  }
+}
+
+
+body{
+  background-color: black;
+}
